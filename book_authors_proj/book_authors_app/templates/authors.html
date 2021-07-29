@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Add an Author</h2>
+    <form action = "/add_author" method = "POST">
+    {% csrf_token %}
+        <p>
+            <label for="first_name">First Name</label>
+            <br><input type="text" name="first_name" class="title">
+        </p>
+        <p>
+            <label for="last_name">Last Name</label>
+            <br><input type="text" name="last_name" class="title"> 
+        </p>
+        <p>
+            <label for="notes">Notes</label>
+            <br><input type="text" name="notes" class="desc">
+        </p>
+        <p><button>Add</button></p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for author in authors %}
+            <tr>
+                <td>{{author.id}}</td>
+                <td>{{author.first_name}} {{author.last_name}}</td>
+                <td><a href="/author/{{ author.id }}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for new_author in new_authors %}
+            <tr>
+                <td>{{new_author.id}}</td>
+                <td>{{new_author.first_name}} {{new_author.last_name}}</td>
+                <td><a href="/author/{{ author.id }}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

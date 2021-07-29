@@ -1,0 +1,19 @@
+table, tr, th, td{
+    border: black 1px solid;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+
+.tab{
+    margin-left: fit;
+}
+
+.title{
+    width:200px;
+}
+
+.desc{
+    width: 200px;
+    height: 50px;
+}
